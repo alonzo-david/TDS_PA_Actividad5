@@ -1,0 +1,17 @@
+{
+  "name": "tds_pa_actividad5",
+  "version": "1.0.0",
+  "description": "",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^17.1.2",
+    "mysql": "^2.18.1",
+    "mysql2": "^2.3.3"
+  }
+}
