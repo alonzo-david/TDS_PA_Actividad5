@@ -13,41 +13,56 @@
 
 <body style="padding: 1em;">
 
-    <label for="basic-url" class="form-label">Filtro preseleccionado es "Normal"</label>
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Filtro</span>
-        <select class="form-select" id="filtro">
-            <option value="" selected>normal</option>
-            <option value="blur">blur</option>
-            <option value="mono">mono</option>
-            <option value="sepia">sepia</option>
-            <option value="negative">negative</option>
-            <option value="paint">paint</option>
-            <option value="pixel">pixel</option>
-        </select>
+    <div class="row justify-content-center">
+        <div class="col-12 text-center">
+            <h1>Acitivdad 5</h1>
+            <h2>API</h2>
+        </div>
+        <div class="col-6">
+            <label for="basic-url" class="form-label">Filtro preseleccionado es "Normal"</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Filtro</span>
+                <select class="form-select" id="filtro">
+                    <option value="" selected>normal</option>
+                    <option value="blur">blur</option>
+                    <option value="mono">mono</option>
+                    <option value="sepia">sepia</option>
+                    <option value="negative">negative</option>
+                    <option value="paint">paint</option>
+                    <option value="pixel">pixel</option>
+                </select>
+            </div>
+
+            <label for="basic-url" class="form-label">El valor de alto debe de ser mayor o igual a 100</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Alto</span>
+                <input type="number" min="100" class="form-control" placeholder="Ingrese un numero mayor a 100"
+                    id="alto" onblur="if(value<100) value='';" />
+            </div>
+
+            <label for="basic-url" class="form-label">El valor de ancho debe de ser mayor o igual a 100</label>
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Ancho</span>
+                <input type="number" min="100" class="form-control" placeholder="Ingrese un numero mayor a 100"
+                    id="ancho" onblur="if(value<100) value='';" />
+            </div>
+
+            <button id="consultar" class="btn btn-primary mb-3">Buscar</button>
+            <br />
+
+            <img id="respuesta" />
+
+            <br />
+            <br />
+            <button id="guardar" class="btn btn-primary " disabled>Guardar Busqueda</button>
+
+            <br />
+            <br />
+            <button id="registros" class="btn btn-success">Buscar registros</button>
+
+        </div>
     </div>
 
-    <label for="basic-url" class="form-label">El valor de alto debe de ser mayor o igual a 100</label>
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Alto</span>
-        <input type="number" min="100" class="form-control" placeholder="Ingrese un numero mayor a 100" id="alto"
-            onblur="if(value<100) value='';" />
-    </div>
-
-    <label for="basic-url" class="form-label">El valor de ancho debe de ser mayor o igual a 100</label>
-    <div class="input-group mb-3">
-        <span class="input-group-text" id="basic-addon1">Ancho</span>
-        <input type="number" min="100" class="form-control" placeholder="Ingrese un numero mayor a 100" id="ancho"
-            onblur="if(value<100) value='';" />
-    </div>
-
-    <button id="consultar" class="btn btn-primary mb-3">Buscar</button>
-    <br/>
-
-    <img id="respuesta" />
-
-    <br/>
-    <button id="guardar" class="btn btn-primary " disabled>Guardar Busqueda</button>
 
     <script type="text/javascript" src="renderer.js"></script>
 </body>

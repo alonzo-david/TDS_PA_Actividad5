@@ -1,6 +1,6 @@
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
-const { ipcMain } = require('electron')
+const { ipcMain, Notification } = require('electron')
 const mysql = require('mysql2')
 
 const connection = mysql.createConnection({
@@ -16,12 +16,11 @@ const connection = mysql.createConnection({
 var ventana
 function createWindow() {
     ventana = new BrowserWindow({
-        width: 650,
-        height: 650,
         webPreferences: {
             preload: path.join(app.getAppPath(), 'preload.js')
         }
     })
+    ventana.maximize();
     ventana.loadFile('renderer.html')
 }
 
@@ -39,3 +38,28 @@ ipcMain.on('nuevoRegistro', (event, args) => {
         args,
     )
 })
+
+ipcMain.on('redireccionar', (event, args) => {
+    ventana.loadFile('busquedas.html')
+})
+
+ipcMain.on('buscarRegistros', (event, args) => {
+  
+    connection.promise().execute('SELECT * FROM busqueda')
+    .then(([results, fields]) => {
+        ventana.webContents.send('retornarRegistros', results);        
+    })
+
+})
+
+ipcMain.on('renderer', (event, args) => {
+    ventana.loadFile('renderer.html')
+})
+
+ipcMain.on('notification', () => {
+    const n = new Notification({
+      title: "Exito",
+      body: "Busqueda guardada con exito!"
+    });
+    n.show()
+  })
